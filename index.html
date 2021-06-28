@@ -1,0 +1,128 @@
+<!DOCTYPE html>
+
+<html lang="en" dir="ltr">
+  <head>
+    <meta charset="utf-8">
+    <title>Control Panel for Robot</title>
+    <link rel="stylesheet" href="style.css">
+  </head>
+  <body>
+  <h2>لوحة تحكم الروبوت</h2>
+   
+	<div class="slidecontainer">
+  <h3>محرك 1</h3>
+  <input type="range" min="0" max="360" value="" class="slider" id="firstRange">
+  <p class="myvalue">  Value: <span id="firstdemo"></span></p>
+</div>
+
+<script>
+
+  var firstSliderRange = document.getElementById("firstRange");
+      var firstoutput = document.getElementById("firstdemo");
+      firstoutput.innerHTML = firstSliderRange.value;
+      
+      firstSliderRange.oninput = function() {
+        firstoutput.innerHTML = this.value;
+      }
+  
+  
+  </script>
+  <div class="slidecontainer">
+  <h3>محرك 2</h3>
+  <input type="range" min="0" max="180" value="" class="slider" id="secondRange">
+  <p class="myvalue">  Value: <span id="seconddemo"></span></p>
+</div>
+
+<script>
+
+  var secondSliderRange = document.getElementById("secondRange");
+      var secondoutput = document.getElementById("seconddemo");
+      secondoutput.innerHTML = secondSliderRange.value;
+      
+      secondSliderRange.oninput = function() {
+        secondoutput.innerHTML = this.value;
+      }
+  
+  
+  </script>
+    <div class="slidecontainer">
+  <h3>محرك 3</h3>
+  <input type="range" min="0" max="200" value="" class="slider" id="thirdRange">
+  <p class="myvalue">  Value: <span id="thirddemo"></span></p>
+</div>
+
+<script>
+
+  var thirdSliderRange = document.getElementById("thirdRange");
+      var thirdoutput = document.getElementById("thirddemo");
+      thirdoutput.innerHTML = thirdSliderRange.value;
+      
+      thirdSliderRange.oninput = function() {
+        thirdoutput.innerHTML = this.value;
+      }
+  
+  
+  </script>
+      <div class="slidecontainer">
+  <h3>محرك 4</h3>
+  <input type="range" min="0" max="260" value="" class="slider" id="fourthRange">
+  <p class="myvalue">  Value: <span id="fourthdemo"></span></p>
+</div>
+
+<script>
+
+  var fourthSliderRange = document.getElementById("fourthRange");
+      var fourthoutput = document.getElementById("fourthdemo");
+      fourthoutput.innerHTML = fourthSliderRange.value;
+      
+      fourthSliderRange.oninput = function() {
+        fourthoutput.innerHTML = this.value;
+      }
+  
+  
+  </script>
+  
+      <div class="slidecontainer">
+  <h3>محرك 5</h3>
+  <input type="range" min="0" max="180" value="" class="slider" id="fifthRange">
+  <p class="myvalue">  Value: <span id="fifthdemo"></span></p>
+</div>
+
+<script>
+
+  var fifthSliderRange = document.getElementById("fifthRange");
+      var fifthoutput = document.getElementById("fifthdemo");
+      fifthoutput.innerHTML = fifthSliderRange.value;
+      
+      fifthSliderRange.oninput = function() {
+        fifthoutput.innerHTML = this.value;
+      }
+  
+  
+  </script>
+  
+      <div class="slidecontainer">
+  <h3 style="text-align:left;">محرك 6</h3>
+  
+  <input type="range" min="0" max="300" value="" class="slider" id="sixthRange">
+  <p class="myvalue">  Value: <span id="sixthdemo"></span></p>
+</div>
+
+<script>
+
+  var sixthSliderRange = document.getElementById("sixthRange");
+      var sixthoutput = document.getElementById("sixthdemo");
+      sixthoutput.innerHTML = sixthSliderRange.value;
+      
+      sixthSliderRange.oninput = function() {
+        sixthoutput.innerHTML = this.value;
+      }
+  
+  
+  </script>
+	<button class="savebutton">حفظ </button>
+	<button class="buttonon">تشغيل </button>
+	
+	 </body>
+</html>
+
