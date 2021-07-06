@@ -1,0 +1,249 @@
+{
+  "intents": [
+    {
+      "intent": "ترحيب",
+      "examples": [
+        {
+          "text": "السلام عليكم"
+        },
+        {
+          "text": "اهلا"
+        },
+        {
+          "text": "اهلا وسهلا"
+        },
+        {
+          "text": "لو سمحت"
+        },
+        {
+          "text": "مرحبا"
+        },
+        {
+          "text": "هلا"
+        },
+        {
+          "text": "يا هلا"
+        }
+      ],
+      "description": ""
+    },
+    {
+      "intent": "طلبيات",
+      "examples": [
+        {
+          "text": "احتاج توست مع زبدة"
+        },
+        {
+          "text": "اريد ان اطلب بيض"
+        },
+        {
+          "text": "اريد ان اطلب بيض مسلوق"
+        },
+        {
+          "text": "اريد بيتزا"
+        },
+        {
+          "text": "اريد بيض عين"
+        },
+        {
+          "text": "اريد شاي"
+        },
+        {
+          "text": "اريد قهوة"
+        },
+        {
+          "text": "قليل من الفطاير"
+        }
+      ],
+      "description": ""
+    }
+  ],
+  "entities": [
+    {
+      "entity": "فطور",
+      "values": [
+        {
+          "type": "synonyms",
+          "value": "breakfast",
+          "synonyms": []
+        },
+        {
+          "type": "synonyms",
+          "value": "افطار",
+          "synonyms": [
+            "فطور"
+          ]
+        },
+        {
+          "type": "synonyms",
+          "value": "اكل",
+          "synonyms": []
+        },
+        {
+          "type": "synonyms",
+          "value": "مطعم",
+          "synonyms": []
+        }
+      ],
+      "fuzzy_match": true
+    }
+  ],
+  "metadata": {
+    "api_version": {
+      "major_version": "v2",
+      "minor_version": "2018-11-08"
+    }
+  },
+  "dialog_nodes": [
+    {
+      "type": "event_handler",
+      "parent": "slot_4_1625330503255",
+      "event_name": "input",
+      "dialog_node": "handler_1_1625330503266"
+    },
+    {
+      "type": "event_handler",
+      "output": {},
+      "parent": "slot_4_1625330503255",
+      "event_name": "focus",
+      "dialog_node": "handler_5_1625330503266",
+      "previous_sibling": "handler_1_1625330503266"
+    },
+    {
+      "type": "standard",
+      "title": "الطلبات",
+      "output": {
+        "generic": [
+          {
+            "values": [
+              {
+                "text": "ماذا تحتاج أيضا؟"
+              },
+              {
+                "text": "ماذا تود أن تطلب؟"
+              },
+              {
+                "text": "هل تريد المزيد من الطلبات؟"
+              },
+              {
+                "text": "واحد أم أكثر"
+              },
+              {
+                "text": "ماذا ايضا"
+              }
+            ],
+            "response_type": "text",
+            "selection_policy": "random"
+          }
+        ]
+      },
+      "conditions": "طلبيات",
+      "dialog_node": "node_4_1625608711535",
+      "previous_sibling": "مرحبا"
+    },
+    {
+      "type": "frame",
+      "title": "اهلا",
+      "output": {
+        "generic": [
+          {
+            "values": [
+              {
+                "text": "يا هلا"
+              },
+              {
+                "text": "مرحبا"
+              },
+              {
+                "text": "هلا"
+              },
+              {
+                "text": "يسعد اوقاتك"
+              }
+            ],
+            "response_type": "text",
+            "selection_policy": "random"
+          }
+        ]
+      },
+      "conditions": "ترحيب",
+      "dialog_node": "node_9_1625330272902",
+      "previous_sibling": "node_4_1625608711535"
+    },
+    {
+      "type": "slot",
+      "parent": "node_9_1625330272902",
+      "dialog_node": "slot_4_1625330503255"
+    },
+    {
+      "type": "standard",
+      "title": "أي شيء آخر",
+      "output": {
+        "generic": [
+          {
+            "values": [
+              {
+                "text": "لم أفهم، يمكنك محاولة اعادة الصياغة"
+              },
+              {
+                "text": "هل يمكنك اعادة صياغة عبارتك؟ أنا لا فهم"
+              },
+              {
+                "text": "لم أفهم قصدك"
+              }
+            ],
+            "response_type": "text",
+            "selection_policy": "sequential"
+          }
+        ]
+      },
+      "conditions": "anything_else",
+      "dialog_node": "أي شيء آخر",
+      "previous_sibling": "node_9_1625330272902",
+      "disambiguation_opt_out": true
+    },
+    {
+      "type": "standard",
+      "title": "مرحبا",
+      "output": {
+        "generic": [
+          {
+            "values": [
+              {
+                "text": "مرحبا، كيف يمكنني مساعدتك؟"
+              },
+              {
+                "text": "اهلا وسهلا ماذا تود ان تطلب؟"
+              },
+              {
+                "text": "مرحبا , هل تحتاج المنيو؟"
+              }
+            ],
+            "response_type": "text",
+            "selection_policy": "random"
+          }
+        ]
+      },
+      "conditions": "welcome",
+      "dialog_node": "مرحبا"
+    }
+  ],
+  "counterexamples": [],
+  "system_settings": {
+    "disambiguation": {
+      "prompt": ":هل قصدت",
+      "enabled": true,
+      "randomize": true,
+      "max_suggestions": 5,
+      "suggestion_text_policy": "title",
+      "none_of_the_above_prompt": "كل ما سبق خطأ"
+    },
+    "human_agent_assist": {
+      "prompt": ":هل قصدت"
+    }
+  },
+  "learning_opt_out": false,
+  "name": "تحدث",
+  "language": "ar",
+  "description": ""
+}
